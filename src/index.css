@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+
+  --color-ink: #0a2a66;
+  --color-deep: #0a3a8a;
+  --color-brand: #1565c0;
+  --color-brand-dark: #0d47a1;
+  --color-gold: #e6d832;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: #fff;
+  background: linear-gradient(170deg, #0a3a8a 0%, #1565c0 55%, #0d47a1 100%) fixed;
+  min-height: 100vh;
+}
+
+/* Inside @layer base so Tailwind classes like text-ink on links can override it */
+@layer base {
+  a { color: inherit; text-decoration: none; }
+}
+
+:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 2px; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
